@@ -127,4 +127,41 @@ export class VoteService {
 
     return data;
   }
+
+  // 获取某个人物的评论
+  async getComments(characterId: number) {
+    const { data, error } = await this.client
+      .from('comments')
+      .select('*')
+      .eq('character_id', characterId)
+      .order('created_at', { ascending: false })
+      .limit(50);
+
+    if (error) {
+      console.error('查询评论失败:', error);
+      throw new Error(`查询评论失败: ${error.message}`);
+    }
+
+    return data || [];
+  }
+
+  // 发表评论
+  async addComment(characterId: number, content: string, nickname: string) {
+    const { data, error } = await this.client
+      .from('comments')
+      .insert({
+        character_id: characterId,
+        content,
+        nickname,
+      })
+      .select()
+      .maybeSingle();
+
+    if (error) {
+      console.error('发表评论失败:', error);
+      throw new Error(`发表评论失败: ${error.message}`);
+    }
+
+    return data;
+  }
 }

@@ -5,6 +5,7 @@ import { Network } from '@/network';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 // 金庸人物数据（头像URL来自AI生成）
 const CHARACTERS = [
@@ -57,12 +58,59 @@ const IndexPage = () => {
   const [loading, setLoading] = useState(true);
   const [voting, setVoting] = useState<number | null>(null);
   const [votedIds, setVotedIds] = useState<Set<number>>(new Set());
+  const [comments, setComments] = useState<any[]>([]);
+  const [newComment, setNewComment] = useState('');
+  const [newNickname, setNewNickname] = useState('');
 
   useEffect(() => {
     const stored = Taro.getStorageSync(VOTED_STORAGE_KEY) || [];
     setVotedIds(new Set(stored));
     fetchCharacters();
+    fetchComments();
   }, []);
+
+  const fetchComments = async () => {
+    try {
+      const res = await Network.request({ 
+        url: '/api/characters/comments',
+        method: 'GET',
+        data: { characterId: 0 } // 0表示获取所有评论
+      });
+      if (res.data?.data) {
+        setComments(res.data.data);
+      }
+    } catch (error) {
+      console.error('获取评论失败:', error);
+    }
+  };
+
+  const handleAddComment = async () => {
+    if (!newNickname.trim() || !newComment.trim()) {
+      Taro.showToast({ title: '请填写昵称和留言', icon: 'none', duration: 1500 });
+      return;
+    }
+
+    try {
+      const res = await Network.request({
+        url: '/api/characters/comments',
+        method: 'POST',
+        data: {
+          characterId: 0, // 0表示全局评论
+          content: newComment.trim(),
+          nickname: newNickname.trim()
+        }
+      });
+      
+      if (res.data?.data) {
+        setComments([res.data.data, ...comments]);
+        setNewComment('');
+        Taro.showToast({ title: '留言成功', icon: 'success', duration: 1500 });
+      }
+    } catch (error) {
+      console.error('发表评论失败:', error);
+      Taro.showToast({ title: '留言失败', icon: 'none', duration: 1500 });
+    }
+  };
 
   const fetchCharacters = async () => {
     try {
@@ -413,6 +461,132 @@ const IndexPage = () => {
           {renderCharacterGrid(hengshanCharacters)}
         </TabsContent>
       </Tabs>
+      
+      {/* 评论区 - 水墨风格 */}
+      <View 
+        className="mt-2 p-4"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(248,246,240,0.98), rgba(245,243,235,0.95))',
+          borderTop: '2px solid rgba(60,60,60,0.2)'
+        }}
+      >
+        {/* 评论标题 */}
+        <View className="flex items-center justify-center mb-3">
+          <View style={{ width: 20, height: 1, background: 'rgba(60,60,60,0.3)' }} />
+          <Text 
+            className="mx-2 text-sm"
+            style={{ color: '#c41e3a', fontWeight: 500, letterSpacing: '2px' }}
+          >
+            江湖留言板
+          </Text>
+          <View style={{ width: 20, height: 1, background: 'rgba(60,60,60,0.3)' }} />
+        </View>
+
+        {/* 发表评论 */}
+        <View 
+          className="mb-3 p-3"
+          style={{
+            background: 'rgba(255,255,255,0.6)',
+            borderRadius: 4,
+            border: '1px solid rgba(60,60,60,0.15)'
+          }}
+        >
+          <View className="flex flex-row gap-2 mb-2">
+            <Input
+              style={{ 
+                flex: 1,
+                padding: '6px 10px',
+                fontSize: 12,
+                background: 'rgba(248,246,240,0.8)',
+                border: '1px solid rgba(60,60,60,0.15)',
+                borderRadius: 4
+              }}
+              placeholder="大侠尊姓大名..."
+              value={newNickname}
+              onInput={(e) => setNewNickname(e.detail.value)}
+            />
+          </View>
+          <View className="flex flex-row gap-2">
+            <Input
+              style={{ 
+                flex: 1,
+                padding: '6px 10px',
+                fontSize: 12,
+                background: 'rgba(248,246,240,0.8)',
+                border: '1px solid rgba(60,60,60,0.15)',
+                borderRadius: 4
+              }}
+              placeholder="写下你的江湖感言..."
+              value={newComment}
+              onInput={(e) => setNewComment(e.detail.value)}
+            />
+            <Button
+              size="sm"
+              style={{
+                background: '#c41e3a',
+                color: '#fff',
+                border: 'none',
+                padding: '0 12px',
+                fontSize: 12,
+                borderRadius: 4
+              }}
+              onClick={handleAddComment}
+            >
+              发表
+            </Button>
+          </View>
+        </View>
+
+        {/* 评论列表 */}
+        <View className="max-h-48 overflow-y-auto">
+          {comments.length === 0 ? (
+            <Text 
+              className="block text-center text-xs"
+              style={{ color: '#999', padding: '12px 0' }}
+            >
+              暂无留言，来写下第一条吧
+            </Text>
+          ) : (
+            comments.map((comment) => (
+              <View 
+                key={comment.id}
+                className="mb-2 p-2"
+                style={{
+                  background: 'rgba(255,255,255,0.5)',
+                  borderLeft: '2px solid #c41e3a',
+                  paddingLeft: 8
+                }}
+              >
+                <View className="flex flex-row items-center gap-2 mb-1">
+                  <Text 
+                    className="text-xs"
+                    style={{ color: '#c41e3a', fontWeight: 500 }}
+                  >
+                    {comment.nickname}
+                  </Text>
+                  <Text 
+                    className="text-xs"
+                    style={{ color: '#999' }}
+                  >
+                    {new Date(comment.created_at).toLocaleString('zh-CN', { 
+                      month: 'numeric', 
+                      day: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })}
+                  </Text>
+                </View>
+                <Text 
+                  className="block text-xs"
+                  style={{ color: '#555', lineHeight: 1.5 }}
+                >
+                  {comment.content}
+                </Text>
+              </View>
+            ))
+          )}
+        </View>
+      </View>
       
       {/* 底部说明 - 水墨风格 */}
       <View 

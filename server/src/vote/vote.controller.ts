@@ -25,4 +25,28 @@ export class VoteController {
       data: result,
     };
   }
+
+  // 获取某个人物的评论
+  @Get('comments')
+  @HttpCode(HttpStatus.OK)
+  async getComments(@Body() body: { characterId: number }) {
+    const { characterId } = body;
+    const comments = await this.voteService.getComments(characterId);
+    return {
+      status: 'success',
+      data: comments,
+    };
+  }
+
+  // 发表评论
+  @Post('comments')
+  @HttpCode(HttpStatus.OK)
+  async addComment(@Body() body: { characterId: number; content: string; nickname: string }) {
+    const { characterId, content, nickname } = body;
+    const result = await this.voteService.addComment(characterId, content, nickname);
+    return {
+      status: 'success',
+      data: result,
+    };
+  }
 }
