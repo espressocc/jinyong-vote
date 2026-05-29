@@ -43,12 +43,18 @@ interface CharacterWithVotes {
   votesCount: number;
 }
 
+const VOTED_STORAGE_KEY = 'jinyong_voted_characters';
+
 const IndexPage = () => {
   const [characters, setCharacters] = useState<CharacterWithVotes[]>([]);
   const [loading, setLoading] = useState(true);
   const [voting, setVoting] = useState<number | null>(null);
+  const [votedIds, setVotedIds] = useState<Set<number>>(new Set());
 
   useEffect(() => {
+    // 从 localStorage 读取已投票的人物ID
+    const stored = Taro.getStorageSync(VOTED_STORAGE_KEY) || [];
+    setVotedIds(new Set(stored));
     fetchCharacters();
   }, []);
 
@@ -80,6 +86,16 @@ const IndexPage = () => {
   };
 
   const handleVote = async (characterId: number) => {
+    // 检查是否已投票
+    if (votedIds.has(characterId)) {
+      Taro.showToast({
+        title: '已经投过票了',
+        icon: 'none',
+        duration: 1500
+      });
+      return;
+    }
+
     try {
       setVoting(characterId);
       const res = await Network.request({
@@ -98,6 +114,13 @@ const IndexPage = () => {
               : c
           )
         );
+        
+        // 记录已投票
+        const newVotedIds = new Set(votedIds);
+        newVotedIds.add(characterId);
+        setVotedIds(newVotedIds);
+        Taro.setStorageSync(VOTED_STORAGE_KEY, Array.from(newVotedIds));
+        
         Taro.showToast({
           title: '投票成功！',
           icon: 'success',
@@ -154,10 +177,10 @@ const IndexPage = () => {
               size="sm"
               className="w-full mt-1"
               onClick={() => handleVote(character.id)}
-              disabled={voting === character.id}
+              disabled={voting === character.id || votedIds.has(character.id)}
             >
               <Text className="text-sm">
-                {voting === character.id ? '投票中...' : '投票'}
+                {votedIds.has(character.id) ? '已投票' : voting === character.id ? '投票中...' : '投票'}
               </Text>
             </Button>
           </CardContent>
@@ -216,7 +239,7 @@ const IndexPage = () => {
       {/* 底部说明 */}
       <View className="p-4 bg-white border-t border-amber-200">
         <Text className="block text-xs text-gray-500 text-center">
-          点击投票按钮为你喜欢的人物投票，可重复投票
+          每个人物只能投一次票，请谨慎选择
         </Text>
       </View>
     </View>
