@@ -5,8 +5,6 @@ import { Network } from '@/network';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 
 // 金庸人物数据（头像URL来自AI生成）
 const CHARACTERS = [
@@ -144,86 +142,154 @@ const IndexPage = () => {
   const totalVotes = characters.reduce((sum, c) => sum + c.votesCount, 0);
 
   const renderCharacterGrid = (charList: CharacterWithVotes[]) => (
-    <View className="grid grid-cols-2 gap-3 p-4">
-      {charList.map(character => (
-        <Card key={character.id} className="overflow-hidden">
-          <CardContent className="p-3 flex flex-col items-center gap-2">
-            {/* 头像 */}
-            <View className="w-20 h-20 rounded-lg overflow-hidden">
-              <Image
-                className="w-full h-full"
-                src={character.avatarUrl}
-                mode="aspectFill"
-              />
-            </View>
-            
-            {/* 人物名 */}
-            <Text className="block text-base font-semibold text-center">
-              {character.name}
-            </Text>
-            
-            {/* 作品名 */}
-            <Text className="block text-xs text-gray-500 text-center">
-              {character.novel}
-            </Text>
-            
-            {/* 票数 */}
-            <Badge variant="secondary" className="mt-1">
-              <Text className="text-sm">{character.votesCount} 票</Text>
-            </Badge>
-            
-            {/* 投票按钮 */}
-            <Button
-              size="sm"
-              className="w-full mt-1"
-              onClick={() => handleVote(character.id)}
-              disabled={voting === character.id || votedIds.has(character.id)}
-            >
-              <Text className="text-sm">
-                {votedIds.has(character.id) ? '已投票' : voting === character.id ? '投票中...' : '投票'}
+    <View className="grid grid-cols-2 gap-4 p-4">
+      {charList.map((character) => {
+        const isVoted = votedIds.has(character.id);
+        const isVoting = voting === character.id;
+        
+        return (
+          <Card 
+            key={character.id} 
+            className="overflow-hidden shadow-lg border-2 border-amber-200 bg-gradient-to-br from-white to-amber-50"
+          >
+            <CardContent className="p-4 flex flex-col items-center gap-3">
+              {/* 头像容器 - 圆形带装饰边框 */}
+              <View className="relative">
+                {/* 外圈装饰 */}
+                <View className="absolute -inset-1 rounded-full bg-gradient-to-r from-red-400 via-amber-400 to-red-400 opacity-60" />
+                {/* 头像 */}
+                <View className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white">
+                  <Image
+                    className="w-full h-full"
+                    src={character.avatarUrl}
+                    mode="aspectFill"
+                  />
+                </View>
+                {/* 角标 - 已投票 */}
+                {isVoted && (
+                  <View className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center border-2 border-white">
+                    <Text className="text-white text-xs">✓</Text>
+                  </View>
+                )}
+              </View>
+              
+              {/* 人物名 - 加大加粗 */}
+              <Text className="block text-lg font-bold text-center text-gray-800">
+                {character.name}
               </Text>
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
+              
+              {/* 作品名 - 斜体样式 */}
+              <Text className="block text-xs text-gray-500 text-center italic">
+                「{character.novel}」
+              </Text>
+              
+              {/* 票数徽章 - 渐变背景 */}
+              <View className="flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-amber-100 to-amber-200 border border-amber-300">
+                <Text className="text-sm font-medium text-amber-700">
+                  {character.votesCount}
+                </Text>
+                <Text className="text-xs text-amber-600">票</Text>
+              </View>
+              
+              {/* 投票按钮 - 渐变 + 阴影 */}
+              <Button
+                size="sm"
+                className={`w-full mt-1 rounded-full shadow-md transition-all ${
+                  isVoted 
+                    ? 'bg-gray-300 text-gray-500' 
+                    : isVoting
+                    ? 'bg-amber-300 text-white'
+                    : 'bg-gradient-to-r from-red-500 to-amber-500 text-white'
+                }`}
+                style={{
+                  background: isVoted 
+                    ? undefined 
+                    : isVoting 
+                    ? undefined 
+                    : 'linear-gradient(135deg, #dc2626 0%, #f59e0b 100%)'
+                }}
+                onClick={() => handleVote(character.id)}
+                disabled={isVoting || isVoted}
+              >
+                <Text className="text-sm font-medium">
+                  {isVoted ? '已投票' : isVoting ? '投票中...' : '投票'}
+                </Text>
+              </Button>
+            </CardContent>
+          </Card>
+        );
+      })}
     </View>
   );
 
   if (loading) {
     return (
-      <View className="w-full h-full flex items-center justify-center bg-amber-50">
-        <Text className="block text-gray-600">加载中...</Text>
+      <View className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-amber-50 to-red-50">
+        {/* 加载动画 */}
+        <View className="relative w-16 h-16 mb-4">
+          <View className="absolute inset-0 rounded-full border-4 border-amber-200" />
+          <View className="absolute inset-0 rounded-full border-4 border-amber-500 border-t-transparent animate-spin" />
+        </View>
+        <Text className="block text-gray-600 text-lg">江湖英雄集结中...</Text>
       </View>
     );
   }
 
   return (
-    <View className="w-full min-h-full flex flex-col bg-amber-50">
-      {/* 标题区 */}
-      <View className="p-4 bg-white">
-        <Text className="block text-xl font-bold text-center text-red-700">
+    <View className="w-full min-h-full flex flex-col bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+      {/* 标题区 - 渐变背景 + 装饰 */}
+      <View 
+        className="relative p-6 overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #f59e0b 100%)'
+        }}
+      >
+        {/* 装饰圆圈 */}
+        <View className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white" style={{ opacity: 0.1 }} />
+        <View className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-white" style={{ opacity: 0.05 }} />
+        
+        {/* 主标题 */}
+        <Text className="block text-2xl font-bold text-center text-white mb-2 tracking-wider">
           金庸江湖人物投票
         </Text>
-        <Text className="block text-sm text-gray-500 text-center mt-1">
+        
+        {/* 副标题 */}
+        <Text className="block text-sm text-white text-center mb-3" style={{ opacity: 0.8 }}>
           选出你心中的江湖英雄
         </Text>
-        <View className="flex justify-center mt-2">
-          <Badge variant="outline" className="border-yellow-600">
-            <Text className="text-sm text-yellow-700">总票数: {totalVotes}</Text>
-          </Badge>
+        
+        {/* 总票数 - 徽章样式 */}
+        <View className="flex justify-center">
+          <View className="px-4 py-2 rounded-full bg-white backdrop-blur-sm border border-white" style={{ opacity: 0.9 }}>
+            <Text className="text-sm text-white font-medium">
+              总票数: {totalVotes}
+            </Text>
+          </View>
         </View>
       </View>
       
-      <Separator />
+      {/* 分隔装饰 */}
+      <View 
+        className="h-1"
+        style={{
+          background: 'linear-gradient(90deg, transparent, #f59e0b, transparent)'
+        }}
+      />
       
       {/* Tabs 区 */}
       <Tabs defaultValue="male" className="flex-1">
-        <TabsList className="w-full">
-          <TabsTrigger value="male" className="flex-1">
-            <Text className="text-base">男主角 ({maleCharacters.length})</Text>
+        <TabsList className="w-full bg-white backdrop-blur-sm" style={{ opacity: 0.8 }}>
+          <TabsTrigger 
+            value="male" 
+            className="flex-1 data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-amber-500 data-[state=active]:text-white"
+          >
+            <Text className="text-base font-medium">男主 ({maleCharacters.length})</Text>
           </TabsTrigger>
-          <TabsTrigger value="female" className="flex-1">
-            <Text className="text-base">女主角 ({femaleCharacters.length})</Text>
+          <TabsTrigger 
+            value="female" 
+            className="flex-1 data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-amber-500 data-[state=active]:text-white"
+          >
+            <Text className="text-base font-medium">女主 ({femaleCharacters.length})</Text>
           </TabsTrigger>
         </TabsList>
         
@@ -236,11 +302,15 @@ const IndexPage = () => {
         </TabsContent>
       </Tabs>
       
-      {/* 底部说明 */}
-      <View className="p-4 bg-white border-t border-amber-200">
-        <Text className="block text-xs text-gray-500 text-center">
-          每个人物只能投一次票，请谨慎选择
-        </Text>
+      {/* 底部说明 - 毛玻璃效果 */}
+      <View className="p-4 bg-white backdrop-blur-sm border-t border-amber-200" style={{ opacity: 0.9 }}>
+        <View className="flex items-center justify-center gap-2">
+          <View className="w-2 h-2 rounded-full bg-amber-400" />
+          <Text className="block text-xs text-gray-500 text-center">
+            每个人物只能投一次票，请谨慎选择
+          </Text>
+          <View className="w-2 h-2 rounded-full bg-amber-400" />
+        </View>
       </View>
     </View>
   );
