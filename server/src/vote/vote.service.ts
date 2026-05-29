@@ -25,6 +25,8 @@ const INITIAL_CHARACTERS = [
   { id: 18, name: '郭襄', novel: '神雕侠侣', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_9d197fee-c6ab-4897-9a29-150565da6055.jpeg?sign=1811554308-f61a7a7445-0-92bf0c79f6fffb47d5c88139f29bd2574b7e73fda5b0915dec172c729fe9aa10' },
   { id: 19, name: '阿紫', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_0cd7121b-64e4-4c42-b7d3-61a2c74a0dc8.jpeg?sign=1811554365-2231daf467-0-52a8b8ad3b2d479e1397d45077b697e98f660fe04106026339901ef6086b34f8' },
   { id: 20, name: '仪琳', novel: '笑傲江湖', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_1a2897c9-4314-474c-9909-6992e9c90bc2.jpeg?sign=1811554365-0edb104cb5-0-e078b59edbc91b54db2a7374788cf7838da1fc0653ce3f95afb990a300ac3732' },
+  { id: 21, name: '程灵素', novel: '飞狐外传', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ee85c11d-cfd3-4fa5-bb40-fea1e5e9ff89.jpeg?sign=1811564169-aea0b3ea10-0-fbfc204131bd46e309b6581a898a82456c416efe6af1b88d6d0504e7006eb49d' },
+  { id: 22, name: '小昭', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ca6ad081-d65c-4f4d-b3d7-b4a35d95975c.jpeg?sign=1811564168-ef7914ac47-0-d0e7424e69ed0f7c917631f745062a96da6859e693411739b3cb7977acb44126' },
 ];
 
 @Injectable()
