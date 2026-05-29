@@ -19,24 +19,26 @@ const CHARACTERS = [
   { id: 8, name: '韦小宝', novel: '鹿鼎记', gender: 'male', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_3d2035e4-80c6-41c7-b4d2-1ecf33997169.jpeg?sign=1811554156-a7eaaf1131-0-b5e128d250314f8fa920b3ff31d02de5f09ab7d8b1702a3696ad57454f8dc541' },
   { id: 9, name: '胡斐', novel: '飞狐外传', gender: 'male', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_924df8d0-29ca-41e1-ac7e-03c13764c8a5.jpeg?sign=1811554157-81a3ebc8aa-0-2eb1fcf1d96e000e74bd0dc2f9d3275d4fa1868947ed79393da410b90f06d059' },
   { id: 10, name: '陈家洛', novel: '书剑恩仇录', gender: 'male', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_23b60195-71a0-4aec-b4da-801eca77b6ef.jpeg?sign=1811554213-5b0d747a1a-0-4216be249ab5a074ec71e0b2b2071864b350ba99b7b21322583ef79b301e4899' },
+  { id: 11, name: '狄云', novel: '连城诀', gender: 'male', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_8c51356f-e553-41d1-a06a-191ef732620b.jpeg?sign=1811564763-e8cfa1ee24-0-25df50fd7f00c39c532af433cd18507579773d77ab5af3290d36a338d6a53259' },
+  { id: 12, name: '石破天', novel: '侠客行', gender: 'male', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_045edebc-f5d2-4662-b287-1c244dc811ef.jpeg?sign=1811564767-864782a4a4-0-8534a468bebcba5a65fbfd20f45a10f06d9f3d88964c52a6bc743a4bfd535907' },
   // 女主
-  { id: 11, name: '黄蓉', novel: '射雕英雄传', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_eedd22f5-5a38-465c-b828-bad403a1305e.jpeg?sign=1811554218-362f789b44-0-3bae29ec01b34dde73b2d72a83b8420c77af9af88b029665fa7db99dd6e5aebc' },
-  { id: 12, name: '小龙女', novel: '神雕侠侣', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_5470834b-7d64-4843-ad5f-f168d337475c.jpeg?sign=1811554213-60aaf375f7-0-784b44610f50418d3a3aff92cc863801b5e0ad32dd71ebb32f55b2be84d6f7b1' },
-  { id: 13, name: '赵敏', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_0e9a8555-015e-4f11-bba2-af5f5446f147.jpeg?sign=1811554260-0dc14b0c24-0-a4d6728aea7e91f9ede44457ae10d5cbcf41889db5d6fa5be5c60f7839835cce' },
-  { id: 14, name: '王语嫣', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_4f305631-98f8-465a-aed9-410e73e70f11.jpeg?sign=1811554261-619bbb0f8c-0-cee5ba4aa653da9274e04ce219be9f0fd96a013ce33d6628f7c5aa5c494768bc' },
-  { id: 15, name: '阿朱', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_75a537ef-e7c9-42f4-b92c-9ee507c04786.jpeg?sign=1811554257-4d27331545-0-d1b8b72f48f3338750d6f67bc35aa39e07d62ebd4d84063e61570cbc9ec129c9' },
-  { id: 16, name: '任盈盈', novel: '笑傲江湖', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_fbddcd5e-b85b-4c51-bbc5-4df2c72d27ed.jpeg?sign=1811554321-9f8fa77233-0-054a484b3e761ad024e038fc9cf0106eda526ad7e9d0d051fa5bd780840f7db8' },
-  { id: 17, name: '周芷若', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_5c26b1bb-42be-4868-9460-7f7fc4fc7958.jpeg?sign=1811554318-1eea1267b9-0-bda47bbba7d4b0c50d24d02474446751e6ef99df2a0445b235d48a09b83a3fcf' },
-  { id: 18, name: '郭襄', novel: '神雕侠侣', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_9d197fee-c6ab-4897-9a29-150565da6055.jpeg?sign=1811554308-f61a7a7445-0-92bf0c79f6fffb47d5c88139f29bd2574b7e73fda5b0915dec172c729fe9aa10' },
-  { id: 19, name: '阿紫', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_0cd7121b-64e4-4c42-b7d3-61a2c74a0dc8.jpeg?sign=1811554365-2231daf467-0-52a8b8ad3b2d479e1397d45077b697e98f660fe04106026339901ef6086b34f8' },
-  { id: 20, name: '仪琳', novel: '笑傲江湖', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_1a2897c9-4314-474c-9909-6992e9c90bc2.jpeg?sign=1811554365-0edb104cb5-0-e078b59edbc91b54db2a7374788cf7838da1fc0653ce3f95afb990a300ac3732' },
-  { id: 21, name: '木婉清', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_7b64e2f8-2f6e-4a1e-9bc9-cb9a7e8f9d1a.jpeg?sign=1811554365-2231daf467-0-52a8b8ad3b2d479e1397d45077b697e98f660fe04106026339901ef6086b34f8' },
-  { id: 22, name: '程灵素', novel: '飞狐外传', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ee85c11d-cfd3-4fa5-bb40-fea1e5e9ff89.jpeg?sign=1811564169-aea0b3ea10-0-fbfc204131bd46e309b6581a898a82456c416efe6af1b88d6d0504e7006eb49d' },
-  { id: 23, name: '小昭', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ca6ad081-d65c-4f4d-b3d7-b4a35d95975c.jpeg?sign=1811564168-ef7914ac47-0-d0e7424e69ed0f7c917631f745062a96da6859e693411739b3cb7977acb44126' },
+  { id: 13, name: '黄蓉', novel: '射雕英雄传', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_eedd22f5-5a38-465c-b828-bad403a1305e.jpeg?sign=1811554218-362f789b44-0-3bae29ec01b34dde73b2d72a83b8420c77af9af88b029665fa7db99dd6e5aebc' },
+  { id: 14, name: '小龙女', novel: '神雕侠侣', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_5470834b-7d64-4843-ad5f-f168d337475c.jpeg?sign=1811554213-60aaf375f7-0-784b44610f50418d3a3aff92cc863801b5e0ad32dd71ebb32f55b2be84d6f7b1' },
+  { id: 15, name: '赵敏', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_0e9a8555-015e-4f11-bba2-af5f5446f147.jpeg?sign=1811554260-0dc14b0c24-0-a4d6728aea7e91f9ede44457ae10d5cbcf41889db5d6fa5be5c60f7839835cce' },
+  { id: 16, name: '王语嫣', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_4f305631-98f8-465a-aed9-410e73e70f11.jpeg?sign=1811554261-619bbb0f8c-0-cee5ba4aa653da9274e04ce219be9f0fd96a013ce33d6628f7c5aa5c494768bc' },
+  { id: 17, name: '阿朱', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_75a537ef-e7c9-42f4-b92c-9ee507c04786.jpeg?sign=1811554257-4d27331545-0-d1b8b72f48f3338750d6f67bc35aa39e07d62ebd4d84063e61570cbc9ec129c9' },
+  { id: 18, name: '任盈盈', novel: '笑傲江湖', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_fbddcd5e-b85b-4c51-bbc5-4df2c72d27ed.jpeg?sign=1811554321-9f8fa77233-0-054a484b3e761ad024e038fc9cf0106eda526ad7e9d0d051fa5bd780840f7db8' },
+  { id: 19, name: '周芷若', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_5c26b1bb-42be-4868-9460-7f7fc4fc7958.jpeg?sign=1811554318-1eea1267b9-0-bda47bbba7d4b0c50d24d02474446751e6ef99df2a0445b235d48a09b83a3fcf' },
+  { id: 20, name: '郭襄', novel: '神雕侠侣', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_9d197fee-c6ab-4897-9a29-150565da6055.jpeg?sign=1811554308-f61a7a7445-0-92bf0c79f6fffb47d5c88139f29bd2574b7e73fda5b0915dec172c729fe9aa10' },
+  { id: 21, name: '阿紫', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_0cd7121b-64e4-4c42-b7d3-61a2c74a0dc8.jpeg?sign=1811554365-2231daf467-0-52a8b8ad3b2d479e1397d45077b697e98f660fe04106026339901ef6086b34f8' },
+  { id: 22, name: '仪琳', novel: '笑傲江湖', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_1a2897c9-4314-474c-9909-6992e9c90bc2.jpeg?sign=1811554365-0edb104cb5-0-e078b59edbc91b54db2a7374788cf7838da1fc0653ce3f95afb990a300ac3732' },
+  { id: 23, name: '木婉清', novel: '天龙八部', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_7b64e2f8-2f6e-4a1e-9bc9-cb9a7e8f9d1a.jpeg?sign=1811554365-2231daf467-0-52a8b8ad3b2d479e1397d45077b697e98f660fe04106026339901ef6086b34f8' },
+  { id: 24, name: '程灵素', novel: '飞狐外传', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ee85c11d-cfd3-4fa5-bb40-fea1e5e9ff89.jpeg?sign=1811564169-aea0b3ea10-0-fbfc204131bd46e309b6581a898a82456c416efe6af1b88d6d0504e7006eb49d' },
+  { id: 25, name: '小昭', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ca6ad081-d65c-4f4d-b3d7-b4a35d95975c.jpeg?sign=1811564168-ef7914ac47-0-d0e7424e69ed0f7c917631f745062a96da6859e693411739b3cb7977acb44126' },
   // 衡山派
-  { id: 24, name: '莫大', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_b7d0d7cf-80af-4d61-900d-9d6b5dcdc99a.jpeg?sign=1811564382-21f36609b3-0-d4ba46e029a4649e0a11812b68d6c7e1b65e4403e7d158d67ad0178caa7d7156' },
-  { id: 25, name: '刘正风', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_9b10f6b9-3d81-4a8e-a699-7424e47b7b59.jpeg?sign=1811564388-c67823b8ec-0-d81426582510d9c376679fb25e56a5a8f085675a0d6d78ec144164047bdb9abb' },
-  { id: 26, name: '仪琳', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_61b4802f-f99e-4d05-835d-fb62dfb1d642.jpeg?sign=1811564382-14741f4cb8-0-6d21d59f0f9ed5859eb4ebb8950480cb476e6e3c1f9de662ba0c6a7ee72cf892' },
+  { id: 26, name: '莫大', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_b7d0d7cf-80af-4d61-900d-9d6b5dcdc99a.jpeg?sign=1811564382-21f36609b3-0-d4ba46e029a4649e0a11812b68d6c7e1b65e4403e7d158d67ad0178caa7d7156' },
+  { id: 27, name: '刘正风', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_9b10f6b9-3d81-4a8e-a699-7424e47b7b59.jpeg?sign=1811564388-c67823b8ec-0-d81426582510d9c376679fb25e56a5a8f085675a0d6d78ec144164047bdb9abb' },
+  { id: 28, name: '仪琳', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_61b4802f-f99e-4d05-835d-fb62dfb1d642.jpeg?sign=1811564382-14741f4cb8-0-6d21d59f0f9ed5859eb4ebb8950480cb476e6e3c1f9de662ba0c6a7ee72cf892' },
 ];
 
 interface CharacterWithVotes {
@@ -57,7 +59,6 @@ const IndexPage = () => {
   const [votedIds, setVotedIds] = useState<Set<number>>(new Set());
 
   useEffect(() => {
-    // 从 localStorage 读取已投票的人物ID
     const stored = Taro.getStorageSync(VOTED_STORAGE_KEY) || [];
     setVotedIds(new Set(stored));
     fetchCharacters();
@@ -70,7 +71,6 @@ const IndexPage = () => {
       console.log('获取人物数据:', res.data);
       
       if (res.data?.data) {
-        // 转换字段名（数据库使用下划线，前端使用驼峰）
         const convertedData = res.data.data.map((item: any) => ({
           id: item.id,
           name: item.name,
@@ -83,7 +83,6 @@ const IndexPage = () => {
       }
     } catch (error) {
       console.error('获取人物数据失败:', error);
-      // 如果接口失败，使用默认数据（票数为0）
       setCharacters(CHARACTERS.map(c => ({ ...c, votesCount: 0 })));
     } finally {
       setLoading(false);
@@ -91,13 +90,8 @@ const IndexPage = () => {
   };
 
   const handleVote = async (characterId: number) => {
-    // 检查是否已投票
     if (votedIds.has(characterId)) {
-      Taro.showToast({
-        title: '已经投过票了',
-        icon: 'none',
-        duration: 1500
-      });
+      Taro.showToast({ title: '已经投过票了', icon: 'none', duration: 1500 });
       return;
     }
 
@@ -111,7 +105,6 @@ const IndexPage = () => {
       console.log('投票结果:', res.data);
       
       if (res.data?.data) {
-        // 更新票数
         setCharacters(prev => 
           prev.map(c => 
             c.id === characterId 
@@ -120,25 +113,16 @@ const IndexPage = () => {
           )
         );
         
-        // 记录已投票
         const newVotedIds = new Set(votedIds);
         newVotedIds.add(characterId);
         setVotedIds(newVotedIds);
         Taro.setStorageSync(VOTED_STORAGE_KEY, Array.from(newVotedIds));
         
-        Taro.showToast({
-          title: '投票成功！',
-          icon: 'success',
-          duration: 1500
-        });
+        Taro.showToast({ title: '投票成功！', icon: 'success', duration: 1500 });
       }
     } catch (error) {
       console.error('投票失败:', error);
-      Taro.showToast({
-        title: '投票失败，请重试',
-        icon: 'none',
-        duration: 2000
-      });
+      Taro.showToast({ title: '投票失败，请重试', icon: 'none', duration: 2000 });
     } finally {
       setVoting(null);
     }
@@ -149,8 +133,9 @@ const IndexPage = () => {
   const hengshanCharacters = characters.filter(c => c.gender === 'hengshan');
   const totalVotes = characters.reduce((sum, c) => sum + c.votesCount, 0);
 
+  // 渲染人物卡片 - 水墨风格
   const renderCharacterGrid = (charList: CharacterWithVotes[]) => (
-    <View className="grid grid-cols-2 gap-4 p-4">
+    <View className="grid grid-cols-2 gap-3 p-3">
       {charList.map((character) => {
         const isVoted = votedIds.has(character.id);
         const isVoting = voting === character.id;
@@ -158,69 +143,98 @@ const IndexPage = () => {
         return (
           <Card 
             key={character.id} 
-            className="overflow-hidden shadow-lg border-2 border-amber-200 bg-gradient-to-br from-white to-amber-50"
+            className="overflow-hidden border border-gray-300 bg-white"
+            style={{
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08), inset 0 0 20px rgba(0,0,0,0.02)'
+            }}
           >
-            <CardContent className="p-4 flex flex-col items-center gap-3">
-              {/* 头像容器 - 圆形带装饰边框 */}
+            <CardContent className="p-3 flex flex-col items-center gap-2">
+              {/* 头像容器 - 水墨圆形 */}
               <View className="relative">
-                {/* 外圈装饰 */}
-                <View className="absolute -inset-1 rounded-full bg-gradient-to-r from-red-400 via-amber-400 to-red-400 opacity-60" />
+                {/* 外圈水墨晕染效果 */}
+                <View 
+                  className="absolute -inset-1 rounded-full"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(100,100,100,0.3) 0%, rgba(200,200,200,0.1) 50%, rgba(100,100,100,0.2) 100%)'
+                  }}
+                />
                 {/* 头像 */}
-                <View className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white">
+                <View 
+                  className="relative w-16 h-16 rounded-full overflow-hidden"
+                  style={{ border: '2px solid rgba(80,80,80,0.3)' }}
+                >
                   <Image
                     className="w-full h-full"
                     src={character.avatarUrl}
                     mode="aspectFill"
                   />
                 </View>
-                {/* 角标 - 已投票 */}
+                {/* 已投票印章 */}
                 {isVoted && (
-                  <View className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center border-2 border-white">
+                  <View 
+                    className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #c41e3a 0%, #8b0000 100%)',
+                      border: '1px solid #ffd700',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                    }}
+                  >
                     <Text className="text-white text-xs">✓</Text>
                   </View>
                 )}
               </View>
               
-              {/* 人物名 - 加大加粗 */}
-              <Text className="block text-lg font-bold text-center text-gray-800">
+              {/* 人物名 - 书法风格 */}
+              <Text 
+                className="block text-base font-bold text-center"
+                style={{ 
+                  color: '#1a1a1a',
+                  letterSpacing: '2px'
+                }}
+              >
                 {character.name}
               </Text>
               
-              {/* 作品名 - 斜体样式 */}
-              <Text className="block text-xs text-gray-500 text-center italic">
+              {/* 作品名 */}
+              <Text 
+                className="block text-xs text-center"
+                style={{ color: '#666', fontStyle: 'italic' }}
+              >
                 「{character.novel}」
               </Text>
               
-              {/* 票数徽章 - 渐变背景 */}
-              <View className="flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-amber-100 to-amber-200 border border-amber-300">
-                <Text className="text-sm font-medium text-amber-700">
+              {/* 票数 - 水墨徽章 */}
+              <View 
+                className="flex items-center gap-1 px-2 py-1 rounded"
+                style={{
+                  background: 'linear-gradient(to right, rgba(60,60,60,0.08), rgba(60,60,60,0.15))',
+                  border: '1px solid rgba(60,60,60,0.2)'
+                }}
+              >
+                <Text className="text-sm font-medium" style={{ color: '#c41e3a' }}>
                   {character.votesCount}
                 </Text>
-                <Text className="text-xs text-amber-600">票</Text>
+                <Text className="text-xs" style={{ color: '#666' }}>票</Text>
               </View>
               
-              {/* 投票按钮 - 渐变 + 阴影 */}
+              {/* 投票按钮 - 朱砂红 */}
               <Button
                 size="sm"
-                className={`w-full mt-1 rounded-full shadow-md transition-all ${
-                  isVoted 
-                    ? 'bg-gray-300 text-gray-500' 
-                    : isVoting
-                    ? 'bg-amber-300 text-white'
-                    : 'bg-gradient-to-r from-red-500 to-amber-500 text-white'
-                }`}
+                className="w-full rounded"
                 style={{
                   background: isVoted 
-                    ? undefined 
+                    ? '#d1d5db' 
                     : isVoting 
-                    ? undefined 
-                    : 'linear-gradient(135deg, #dc2626 0%, #f59e0b 100%)'
+                    ? 'linear-gradient(135deg, #a0a0a0 0%, #888 100%)'
+                    : 'linear-gradient(135deg, #c41e3a 0%, #8b0000 100%)',
+                  color: '#fff',
+                  boxShadow: isVoted ? 'none' : '0 2px 4px rgba(139,0,0,0.3)'
                 }}
                 onClick={() => handleVote(character.id)}
                 disabled={isVoting || isVoted}
               >
                 <Text className="text-sm font-medium">
-                  {isVoted ? '已投票' : isVoting ? '投票中...' : '投票'}
+                  {isVoted ? '已投票' : isVoting ? '投票中' : '投票'}
                 </Text>
               </Button>
             </CardContent>
@@ -232,78 +246,158 @@ const IndexPage = () => {
 
   if (loading) {
     return (
-      <View className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-amber-50 to-red-50">
-        {/* 加载动画 */}
-        <View className="relative w-16 h-16 mb-4">
-          <View className="absolute inset-0 rounded-full border-4 border-amber-200" />
-          <View className="absolute inset-0 rounded-full border-4 border-amber-500 border-t-transparent animate-spin" />
+      <View 
+        className="w-full h-full flex flex-col items-center justify-center"
+        style={{ background: 'linear-gradient(135deg, #f5f5f0 0%, #e8e8e0 100%)' }}
+      >
+        {/* 水墨晕染加载动画 */}
+        <View className="relative w-20 h-20 mb-4">
+          <View 
+            className="absolute inset-0 rounded-full"
+            style={{
+              border: '3px solid rgba(60,60,60,0.1)',
+              background: 'radial-gradient(circle, rgba(60,60,60,0.05) 0%, transparent 70%)'
+            }}
+          />
+          <View 
+            className="absolute inset-0 rounded-full"
+            style={{
+              border: '3px solid transparent',
+              borderTopColor: '#c41e3a',
+              animation: 'spin 1s linear infinite'
+            }}
+          />
+          <View 
+            className="absolute inset-2 rounded-full"
+            style={{
+              border: '2px solid transparent',
+              borderTopColor: '#8b0000',
+              animation: 'spin 0.8s linear infinite reverse'
+            }}
+          />
         </View>
-        <Text className="block text-gray-600 text-lg">江湖英雄集结中...</Text>
+        <Text className="block text-base" style={{ color: '#4a4a4a', letterSpacing: '1px' }}>
+          江湖英雄集结中...
+        </Text>
       </View>
     );
   }
 
   return (
-    <View className="w-full min-h-full flex flex-col bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-      {/* 标题区 - 渐变背景 + 装饰 */}
+    <View 
+      className="w-full min-h-full flex flex-col"
+      style={{ background: 'linear-gradient(135deg, #f8f6f0 0%, #f0ede5 50%, #e8e5dd 100%)' }}
+    >
+      {/* 标题区 - 水墨山水风 */}
       <View 
-        className="relative p-6 overflow-hidden"
+        className="relative p-5 overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #f59e0b 100%)'
+          background: 'linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 60%, #3d3d3d 100%)'
         }}
       >
-        {/* 装饰圆圈 */}
-        <View className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white" style={{ opacity: 0.1 }} />
-        <View className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-white" style={{ opacity: 0.05 }} />
+        {/* 装饰 - 山水剪影 */}
+        <View 
+          className="absolute top-0 right-0 w-32 h-20"
+          style={{
+            background: 'radial-gradient(ellipse at top right, rgba(255,255,255,0.08) 0%, transparent 60%)'
+          }}
+        />
+        <View 
+          className="absolute bottom-0 left-0 w-24 h-16"
+          style={{
+            background: 'radial-gradient(ellipse at bottom left, rgba(255,255,255,0.05) 0%, transparent 50%)'
+          }}
+        />
         
-        {/* 主标题 */}
-        <Text className="block text-2xl font-bold text-center text-white mb-2 tracking-wider">
+        {/* 主标题 - 书法风格 */}
+        <Text 
+          className="block text-xl font-bold text-center mb-1"
+          style={{ 
+            color: '#f5f5f0',
+            letterSpacing: '4px',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+          }}
+        >
           金庸江湖人物投票
         </Text>
         
         {/* 副标题 */}
-        <Text className="block text-sm text-white text-center mb-3" style={{ opacity: 0.8 }}>
+        <Text 
+          className="block text-xs text-center mb-3"
+          style={{ color: 'rgba(245,245,240,0.7)', letterSpacing: '2px' }}
+        >
           选出你心中的江湖英雄
         </Text>
         
-        {/* 总票数 - 徽章样式 */}
+        {/* 总票数 - 印章风格 */}
         <View className="flex justify-center">
-          <View className="px-4 py-2 rounded-full bg-white backdrop-blur-sm border border-white" style={{ opacity: 0.9 }}>
-            <Text className="text-sm text-white font-medium">
+          <View 
+            className="px-4 py-2 rounded"
+            style={{
+              background: 'rgba(196,30,58,0.9)',
+              border: '1px solid rgba(255,215,0,0.5)',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+            }}
+          >
+            <Text className="text-sm" style={{ color: '#f5f5f0', letterSpacing: '1px' }}>
               总票数: {totalVotes}
             </Text>
           </View>
         </View>
       </View>
       
-      {/* 分隔装饰 */}
+      {/* 分隔线 - 水墨晕染 */}
       <View 
         className="h-1"
         style={{
-          background: 'linear-gradient(90deg, transparent, #f59e0b, transparent)'
+          background: 'linear-gradient(90deg, transparent 0%, rgba(60,60,60,0.3) 20%, rgba(60,60,60,0.5) 50%, rgba(60,60,60,0.3) 80%, transparent 100%)'
         }}
       />
       
       {/* Tabs 区 */}
       <Tabs defaultValue="male" className="flex-1">
-        <TabsList className="w-full bg-white backdrop-blur-sm" style={{ opacity: 0.8 }}>
+        <TabsList 
+          className="w-full"
+          style={{ 
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(248,246,240,0.9))',
+            borderBottom: '1px solid rgba(60,60,60,0.15)'
+          }}
+        >
           <TabsTrigger 
             value="male" 
-            className="flex-1 data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-amber-500 data-[state=active]:text-white"
+            className="flex-1"
+            style={{
+              borderBottom: '2px solid transparent'
+            }}
           >
-            <Text className="text-sm font-medium">男主 ({maleCharacters.length})</Text>
+            <Text 
+              className="text-sm font-medium"
+              style={{ letterSpacing: '1px' }}
+            >
+              男主 ({maleCharacters.length})
+            </Text>
           </TabsTrigger>
           <TabsTrigger 
             value="female" 
-            className="flex-1 data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-amber-500 data-[state=active]:text-white"
+            className="flex-1"
           >
-            <Text className="text-sm font-medium">女主 ({femaleCharacters.length})</Text>
+            <Text 
+              className="text-sm font-medium"
+              style={{ letterSpacing: '1px' }}
+            >
+              女主 ({femaleCharacters.length})
+            </Text>
           </TabsTrigger>
           <TabsTrigger 
             value="hengshan" 
-            className="flex-1 data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-amber-500 data-[state=active]:text-white"
+            className="flex-1"
           >
-            <Text className="text-sm font-medium">衡山派 ({hengshanCharacters.length})</Text>
+            <Text 
+              className="text-sm font-medium"
+              style={{ letterSpacing: '1px' }}
+            >
+              衡山派 ({hengshanCharacters.length})
+            </Text>
           </TabsTrigger>
         </TabsList>
         
@@ -320,14 +414,29 @@ const IndexPage = () => {
         </TabsContent>
       </Tabs>
       
-      {/* 底部说明 - 毛玻璃效果 */}
-      <View className="p-4 bg-white backdrop-blur-sm border-t border-amber-200" style={{ opacity: 0.9 }}>
+      {/* 底部说明 - 水墨风格 */}
+      <View 
+        className="p-3"
+        style={{
+          background: 'linear-gradient(to top, rgba(60,60,60,0.08), rgba(60,60,60,0.02))',
+          borderTop: '1px solid rgba(60,60,60,0.15)'
+        }}
+      >
         <View className="flex items-center justify-center gap-2">
-          <View className="w-2 h-2 rounded-full bg-amber-400" />
-          <Text className="block text-xs text-gray-500 text-center">
+          <View 
+            className="w-2 h-2 rounded-full"
+            style={{ background: '#c41e3a' }}
+          />
+          <Text 
+            className="block text-xs text-center"
+            style={{ color: '#666', letterSpacing: '0.5px' }}
+          >
             每个人物只能投一次票，请谨慎选择
           </Text>
-          <View className="w-2 h-2 rounded-full bg-amber-400" />
+          <View 
+            className="w-2 h-2 rounded-full"
+            style={{ background: '#c41e3a' }}
+          />
         </View>
       </View>
     </View>
