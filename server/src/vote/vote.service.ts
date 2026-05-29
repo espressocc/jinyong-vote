@@ -27,6 +27,10 @@ const INITIAL_CHARACTERS = [
   { id: 20, name: '仪琳', novel: '笑傲江湖', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_1a2897c9-4314-474c-9909-6992e9c90bc2.jpeg?sign=1811554365-0edb104cb5-0-e078b59edbc91b54db2a7374788cf7838da1fc0653ce3f95afb990a300ac3732' },
   { id: 21, name: '程灵素', novel: '飞狐外传', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ee85c11d-cfd3-4fa5-bb40-fea1e5e9ff89.jpeg?sign=1811564169-aea0b3ea10-0-fbfc204131bd46e309b6581a898a82456c416efe6af1b88d6d0504e7006eb49d' },
   { id: 22, name: '小昭', novel: '倚天屠龙记', gender: 'female', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_ca6ad081-d65c-4f4d-b3d7-b4a35d95975c.jpeg?sign=1811564168-ef7914ac47-0-d0e7424e69ed0f7c917631f745062a96da6859e693411739b3cb7977acb44126' },
+  // 衡山派
+  { id: 23, name: '莫大', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_b7d0d7cf-80af-4d61-900d-9d6b5dcdc99a.jpeg?sign=1811564382-21f36609b3-0-d4ba46e029a4649e0a11812b68d6c7e1b65e4403e7d158d67ad0178caa7d7156' },
+  { id: 24, name: '刘正风', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_9b10f6b9-3d81-4a8e-a699-7424e47b7b59.jpeg?sign=1811564388-c67823b8ec-0-d81426582510d9c376679fb25e56a5a8f085675a0d6d78ec144164047bdb9abb' },
+  { id: 25, name: '仪琳', novel: '笑傲江湖', gender: 'hengshan', avatarUrl: 'https://coze-coding-project.tos.coze.site/coze_storage_7645089141197373459/image/generate_image_61b4802f-f99e-4d05-835d-fb62dfb1d642.jpeg?sign=1811564382-14741f4cb8-0-6d21d59f0f9ed5859eb4ebb8950480cb476e6e3c1f9de662ba0c6a7ee72cf892' },
 ];
 
 @Injectable()
